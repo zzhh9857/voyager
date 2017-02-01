@@ -194,7 +194,7 @@ class DatabaseTest extends TestCase
                 $this->assertEquals('mediumtext', $columns[8]['type']);
                 $this->assertEquals('longtext', $columns[9]['type']);
                 $this->assertEquals('double(8,2)', $columns[10]['type']);
-                $this->assertEquals('13mdouble', $columns[11]['type']);
+                $this->assertEquals('double', $columns[11]['type']);
                 $this->assertEquals('decimal(8,2)', $columns[12]['type']);
                 $this->assertEquals('tinyint(1)', $columns[13]['type']);
                 $this->assertEquals("enum('valueA','valueB')", $columns[14]['type']);

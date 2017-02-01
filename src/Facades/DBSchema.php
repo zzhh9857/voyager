@@ -116,7 +116,16 @@ class DBSchema
                         AND f.attnum > 0 ORDER BY number
                 ";
 
-                dd(DB::select(DB::raw($raw)));
+                return collect(DB::select(DB::raw($raw)))->map(function ($item) {
+                    return [
+                        'field'   => $item->name,
+                        'type'    => $item->type,
+                        'null'    => ($item->notnull) ? 'NO' : 'YES',
+                        'key'     => $item->primarykey == 't' ? 'PRI' : '',
+                        'default' => $item->default,
+                        'extra'   => ($item->primarykey == 't' && $item->type == 'integer') ? 'auto_increment' : '',
+                    ];
+                });
 
             default:
                 $columns = DB::select(DB::raw("PRAGMA table_info({$table})"));
