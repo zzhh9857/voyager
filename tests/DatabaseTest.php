@@ -262,8 +262,6 @@ class DatabaseTest extends TestCase
 
     public function test_can_create_nullable_column()
     {
-        dd(\TCG\Voyager\Models\User::all());
-
         Auth::loginUsingId(1);
 
         // Create table
