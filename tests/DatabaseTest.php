@@ -209,9 +209,9 @@ class DatabaseTest extends TestCase
 
             case 'pgsql':
             case 'postgres':
-                $this->assertEquals('smallint', $columns[0]['type']);
-                $this->assertEquals('smallint', $columns[1]['type']);
-                $this->assertEquals('smallint', $columns[2]['type']);
+                $this->assertEquals('integer', $columns[0]['type']);
+                $this->assertEquals('integer', $columns[1]['type']);
+                $this->assertEquals('integer', $columns[2]['type']);
                 $this->assertEquals('integer', $columns[3]['type']);
                 $this->assertEquals('integer', $columns[4]['type']);
                 $this->assertEquals('integer', $columns[5]['type']);
