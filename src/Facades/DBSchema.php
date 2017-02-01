@@ -102,9 +102,7 @@ class DBSchema
                         END AS foreignkey_connnum,
                         CASE
                             WHEN f.atthasdef = 't' THEN d.adsrc
-                        END AS default,
-                        n.nspname as schema_name,
-                        c.relname as table
+                        END AS default
                     FROM pg_attribute f  
                         JOIN pg_class c ON c.oid = f.attrelid  
                         JOIN pg_type t ON t.oid = f.atttypid  
@@ -113,12 +111,10 @@ class DBSchema
                         LEFT JOIN pg_constraint p ON p.conrelid = c.oid AND f.attnum = ANY (p.conkey)  
                         LEFT JOIN pg_class AS g ON p.confrelid = g.oid  
                     WHERE c.relkind = 'r'::char  
-                    "/*
-                        AND n.nspname = '{$schema_name}'
+                        AND n.nspname = 'public'
                         AND c.relname = '{$table}'
-                    */.'
                         AND f.attnum > 0 ORDER BY number
-                ';
+                ";
 
                 dd(DB::select(DB::raw($raw)));
 
