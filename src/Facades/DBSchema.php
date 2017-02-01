@@ -102,7 +102,9 @@ class DBSchema
                         END AS foreignkey_connnum,
                         CASE
                             WHEN f.atthasdef = 't' THEN d.adsrc
-                        END AS default
+                        END AS default,
+                        n.nspname as schema_name,
+                        c.relname as table
                     FROM pg_attribute f  
                         JOIN pg_class c ON c.oid = f.attrelid  
                         JOIN pg_type t ON t.oid = f.atttypid  
