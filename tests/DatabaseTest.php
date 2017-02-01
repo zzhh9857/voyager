@@ -183,30 +183,28 @@ class DatabaseTest extends TestCase
         switch (env('DB_DRIVER', 'sqlite')) {
 
             case 'mysql':
-
-                dd($columns);
                 $this->assertEquals('int(10) unsigned', $columns[0]['type']);
                 $this->assertEquals('tinyint(4)', $columns[1]['type']);
                 $this->assertEquals('smallint(6)', $columns[2]['type']);
                 $this->assertEquals('mediumint(9)', $columns[3]['type']);
                 $this->assertEquals('int(11)', $columns[4]['type']);
-                $this->assertEquals('int(10) unsigned', $columns[5]['type']);
-                $this->assertEquals('varchar', $columns[6]['type']);
+                $this->assertEquals('bigint(20)', $columns[5]['type']);
+                $this->assertEquals('varchar(255)', $columns[6]['type']);
                 $this->assertEquals('text', $columns[7]['type']);
-                $this->assertEquals('text', $columns[8]['type']);
-                $this->assertEquals('text', $columns[9]['type']);
-                $this->assertEquals('float', $columns[10]['type']);
-                $this->assertEquals('float', $columns[11]['type']);
-                $this->assertEquals('numeric', $columns[12]['type']);
+                $this->assertEquals('mediumtext', $columns[8]['type']);
+                $this->assertEquals('longtext', $columns[9]['type']);
+                $this->assertEquals('double(8,2)', $columns[10]['type']);
+                $this->assertEquals('13mdouble', $columns[11]['type']);
+                $this->assertEquals('decimal(8,2)', $columns[12]['type']);
                 $this->assertEquals('tinyint(1)', $columns[13]['type']);
-                $this->assertEquals('varchar', $columns[14]['type']);
+                $this->assertEquals("enum('valueA','valueB')", $columns[14]['type']);
                 $this->assertEquals('date', $columns[15]['type']);
                 $this->assertEquals('datetime', $columns[16]['type']);
                 $this->assertEquals('time', $columns[17]['type']);
-                $this->assertEquals('datetime', $columns[18]['type']);
+                $this->assertEquals('timestamp', $columns[18]['type']);
                 $this->assertEquals('blob', $columns[19]['type']);
-                $this->assertEquals('datetime', $columns[20]['type']);
-                $this->assertEquals('datetime', $columns[21]['type']);
+                $this->assertEquals('timestamp', $columns[20]['type']);
+                $this->assertEquals('timestamp', $columns[21]['type']);
                 break;
 
             default:
