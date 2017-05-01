@@ -604,7 +604,7 @@ Simple enough, in the `pages` BREAD we could choose a *Select Dropdown* as the i
 }
 ```
 
-The **key** above will be the row that we want to use as the value in the select dropddown and the **label** will be the row that we want to display in the dropdown.
+The **key** above will be the row that we want to use as the value in the select dropdown and the **label** will be the row that we want to display in the dropdown.
 
 Finally, we'll need to create a relationship in the `Page` class. This would look like the following:
 
